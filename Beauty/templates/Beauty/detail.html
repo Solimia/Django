@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1 class="my-2">Master Details</h1>
+
+<div class="row g-4">
+  <!-- LEFT SECTION — MASTER CARD -->
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">{{ master.name }}</h5>
+
+        <p class="card-text text-muted">Master in {{ master.salon.name }}</p>
+
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge text-bg-primary">
+            {{ master.experience_years }} yrs exp
+          </span>
+        </div>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <strong>Phone:</strong>
+          <a href="tel:{{ master.phone }}">{{ master.phone }}</a>
+        </li>
+        <li class="list-group-item">
+          <strong>Salon:</strong> {{ master.salon.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- RIGHT SECTION — ABOUT MASTER -->
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">About</div>
+      <div class="card-body">
+        <p class="mb-1"><strong>Name:</strong> {{ master.name }}</p>
+        <p class="mb-1">
+          <strong>Experience:</strong> {{ master.experience_years }} years
+        </p>
+        <p class="mb-1">
+          <strong>Phone:</strong>
+          <a href="tel:{{ master.phone }}">{{ master.phone }}</a>
+        </p>
+        <p class="mb-1">
+          <strong>Salon:</strong> {{ master.salon.name }}
+        </p>
+
+        <p class="mb-0">
+          <strong>Services:</strong><br>
+          {% for service in master.services.all %}
+            • {{ service.name }} — {{ service.price }} грн<br>
+          {% empty %}
+            <span class="text-muted">No services assigned</span>
+          {% endfor %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
