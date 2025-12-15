@@ -5,6 +5,6 @@ import Beauty.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Beauty/', include('Beauty.urls'))
+    path('', include('Beauty.urls'))
 
 ]
