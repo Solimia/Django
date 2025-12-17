@@ -18,7 +18,8 @@
     {% for master in masters %}
     <tr>
       <th scope="row">{{ master.id }}</th>
-      <td>{{ master.name }}</td>
+      <td>
+       <a href="/{{ master.id }}"> {{ master.name }} </a></td>
       <td>{{ master.experience_years }}</td>
       <td>{{ master.phone }}</td>
 
