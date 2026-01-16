@@ -1,5 +1,5 @@
+from Beauty.models import Master
 from rest_framework import serializers
-from masters.models import Master
 
 class MasterSerializer(serializers.ModelSerializer):
     class Meta:
